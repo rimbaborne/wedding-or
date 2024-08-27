@@ -20,4 +20,3 @@ Route::get('/', function () {
 });
 
 Route::get('/', [DashboardsController::class, 'index']);
-Route::get('index', [DashboardsController::class, 'index']);
