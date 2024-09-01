@@ -13,19 +13,13 @@
     <div id="carousel-controls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100 br-7" alt="" src="{{asset('build/assets/images/media/4.jpg')}}" data-holder-rendered="true">
+                <img class="d-block w-100 br-7" style="max-height: 700px; object-fit: cover;" alt="" src="https://images.pexels.com/photos/313707/pexels-photo-313707.jpeg" data-holder-rendered="true">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100 br-7" alt="" src="{{asset('build/assets/images/media/5.jpg')}}" data-holder-rendered="true">
+                <img class="d-block w-100 br-7" style="max-height: 700px; object-fit: cover;" alt="" src="https://images.pexels.com/photos/1616113/pexels-photo-1616113.jpeg" data-holder-rendered="true">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100 br-7" alt="" src="{{asset('build/assets/images/media/6.jpg')}}" data-holder-rendered="true">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100 br-7" alt="" src="{{asset('build/assets/images/media/7.jpg')}}" data-holder-rendered="true">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100 br-7" alt="" src="{{asset('build/assets/images/media/8.jpg')}}" data-holder-rendered="true">
+                <img class="d-block w-100 br-7" style="max-height: 700px; object-fit: cover;" alt="" src="https://images.pexels.com/photos/169185/pexels-photo-169185.jpeg" data-holder-rendered="true">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carousel-controls" role="button" data-bs-slide="prev">

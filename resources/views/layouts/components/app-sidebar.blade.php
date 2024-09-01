@@ -26,19 +26,19 @@
 												class="side-menu__label">Tentang</span></a>
 									</li>
                                     <li>
-										<a class="side-menu__item has-link" href="{{url('tentang')}}"><i class="side-menu__icon fe fe-package"></i><span
+										<a class="side-menu__item has-link" href="{{url('paket')}}"><i class="side-menu__icon fe fe-package"></i><span
 												class="side-menu__label">Paket</span></a>
 									</li>
                                     <li>
-										<a class="side-menu__item has-link" href="{{url('tentang')}}"><i class="side-menu__icon fe fe-home"></i><span
+										<a class="side-menu__item has-link" href="{{url('kontak')}}"><i class="side-menu__icon fe fe-home"></i><span
 												class="side-menu__label">Kontak</span></a>
 									</li>
                                     <li>
-										<a class="side-menu__item has-link" href="{{url('tentang')}}"><i class="side-menu__icon fe fe-camera"></i><span
+										<a class="side-menu__item has-link" href="{{url('galeri')}}"><i class="side-menu__icon fe fe-camera"></i><span
 												class="side-menu__label">Galeri</span></a>
 									</li>
                                     <li>
-										<a class="side-menu__item has-link" href="{{url('tentang')}}"><i class="side-menu__icon fe fe-shopping-cart"></i><span
+										<a class="side-menu__item has-link" href="{{url('pemesanan')}}"><i class="side-menu__icon fe fe-shopping-cart"></i><span
 												class="side-menu__label">Pemesanan</span></a>
 									</li>
 

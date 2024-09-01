@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DashboardsController;
+use App\Http\Controllers\WebsiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,6 @@ Route::get('/', function () {
 });
 
 Route::get('/', [DashboardsController::class, 'index']);
+Route::get('/kontak', [WebsiteController::class, 'kontak']);
+Route::get('/tentang', [WebsiteController::class, 'tentang']);
+Route::get('/galeri', [WebsiteController::class, 'galeri']);
