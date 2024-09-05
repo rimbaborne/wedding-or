@@ -14,6 +14,14 @@ class Paket extends Model
         'nominal',
         'diskon',
         'gambar',
-        'jenis',
+        'jenis_paket_id',
+        'slug',
     ];
+
+
+    public function jenis_paket()
+    {
+        return $this->belongsTo(JenisPaket::class, 'jenis_paket_id', 'id');
+    }
+
 }

@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rekomendasi_pakets', function (Blueprint $table) {
+        Schema::create('pakets', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->integer('diskon')->nullable();
-            $table->integer('harga');
+            $table->string('slug')->unique()->nullable();
             $table->text('keterangan')->nullable();
+            $table->integer('nominal');
+            $table->integer('diskon')->nullable();
+            $table->string('gambar')->nullable();
             $table->boolean('aktif')->default(true);
+            $table->foreignId('jenis_paket_id')->nullable()->constrained('jenis_pakets')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rekomendasi_pakets');
+        Schema::dropIfExists('pakets');
     }
 };

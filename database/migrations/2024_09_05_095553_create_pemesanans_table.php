@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transaksis', function (Blueprint $table) {
+        Schema::create('pemesanans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->uuid('uuid')->unique()->nullable();
@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('no_telepon_pemesan');
             $table->text('alamat_pemesan');
             $table->text('keterangan')->nullable();
-            $table->boolean('rekomendasi_paket')->default(false);
-            $table->foreignId('rekomendasi_paket_id')->nullable()->constrained('rekomendasi_pakets')->onDelete('cascade');
+            $table->json('payment_gateways')->nullable();
+            $table->string('status_pemesanan')->default('DIPROSES'); // DIPROSES, SUDAH DI KONFIRMASI, SELESAI
+            $table->string('status_pembayaran')->default('MENUNGGU PEMBAYARAN'); // MENUNGGU PEMBAYARAN, KONFIRMASI PEMBAYARAN, LUNAS
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transaksis');
+        Schema::dropIfExists('pemesanans');
     }
 };
