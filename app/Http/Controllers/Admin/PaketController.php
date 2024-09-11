@@ -11,15 +11,15 @@ class PaketController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(string $jenis = null)
     {
         $pakets = Paket::all();
-        return view('admin.paket.index', compact('pakets'));
+        return view('admin.paket.index', compact('pakets', 'jenis'));
     }
 
-    public function create()
+    public function create(string $jenis = null)
     {
-        return view('admin.paket.create');
+        return view('admin.paket.create', compact('jenis'));
     }
 
     public function store(Request $request)

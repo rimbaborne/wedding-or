@@ -21,57 +21,33 @@
 									<li class="sub-category">
 										<h3>Main</h3>
 									</li>
-                                        <a class="side-menu__item has-link {{ request()->is('admin') ? 'active' : '' }}" href="{{url('admin')}}">
+                                        <a class="side-menu__item has-link {{ request()->is('admin') ? 'active border border-primary rounded' : '' }}" href="{{url('admin')}}">
                                             <i class="side-menu__icon fe fe-airplay"></i>
                                             <span class="side-menu__label">Dashboard</span>
                                         </a>
                                     <li>
-										<a class="side-menu__item has-link {{ request()->is('admin/pemesanan*') ? 'active' : '' }}" href="{{url('admin/pemesanan')}}">
+										<a class="side-menu__item has-link {{ request()->is('admin/pemesanan*') ? 'active border border-primary rounded' : '' }}" href="{{url('admin/pemesanan')}}">
                                             <i class="side-menu__icon fe fe-layers"></i>
                                             <span class="side-menu__label">Pemesanan</span>
+                                        </a>
+									</li>
+                                    <li>
+										<a class="side-menu__item has-link {{ request()->is('admin/jenis-paket') ? 'active border border-primary rounded' : '' }}" href="{{url('admin/jenis-paket')}}">
+                                            <i class="side-menu__icon fe fe-list"></i>
+                                            <span class="side-menu__label">Jenis Paket</span>
                                         </a>
 									</li>
                                     <li class="sub-category">
 										<h3>PAKET</h3>
 									</li>
+                                    @foreach ($adminSidebar as $menuItem)
                                     <li>
-										<a class="side-menu__item has-link {{ request()->is('rekomendasi*') ? 'active' : '' }}" href="{{url('rekomendasi')}}">
+										<a class="side-menu__item has-link {{ request()->is('admin/paket/'.$menuItem->slug) ? 'active border border-primary rounded' : '' }}" href="{{url('admin/paket/'.$menuItem->slug)}}">
                                             <i class="side-menu__icon fe fe-chevron-right"></i>
-                                            <span class="side-menu__label">Rekomendasi</span>
+                                            <span class="side-menu__label">{{ $menuItem->nama }}</span>
                                         </a>
 									</li>
-                                    <li>
-										<a class="side-menu__item has-link {{ request()->is('Tema*') ? 'active' : '' }}" href="{{url('Tema')}}">
-                                            <i class="side-menu__icon fe fe-chevron-right"></i>
-                                            <span class="side-menu__label">Tema</span>
-                                        </a>
-									</li>
-                                    <li>
-										<a class="side-menu__item has-link {{ request()->is('catering*') ? 'active' : '' }}" href="{{url('catering')}}">
-                                            <i class="side-menu__icon fe fe-chevron-right"></i>
-                                            <span class="side-menu__label">Catering</span>
-                                        </a>
-									</li>
-                                    <li>
-										<a class="side-menu__item has-link {{ request()->is('entertaiment*') ? 'active' : '' }}" href="{{url('entertaiment')}}">
-                                            <i class="side-menu__icon fe fe-chevron-right"></i>
-                                            <span class="side-menu__label">Entertaiment</span>
-                                        </a>
-									</li>
-                                    <li>
-										<a class="side-menu__item has-link {{ request()->is('dekorasi*') ? 'active' : '' }}" href="{{url('dekorasi')}}">
-                                            <i class="side-menu__icon fe fe-chevron-right"></i>
-                                            <span class="side-menu__label">Dekorasi</span>
-                                        </a>
-									</li>
-                                    <li>
-										<a class="side-menu__item has-link {{ request()->is('dokumentasi*') ? 'active' : '' }}" href="{{url('dokumentasi')}}">
-                                            <i class="side-menu__icon fe fe-chevron-right"></i>
-                                            <span class="side-menu__label">Dokumentasi</span>
-                                        </a>
-									</li>
-
-
+                                    @endforeach
 								</ul>
 								<div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
 										width="24" height="24" viewBox="0 0 24 24">
