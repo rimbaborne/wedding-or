@@ -49,7 +49,7 @@ class PaketController extends Controller
                 mkdir($tujuan_upload, 0777, true);
             }
 
-            $allowedfileExtension=['pdf','jpg','png','jpeg'];
+            $allowedfileExtension=['pdf','jpg','png','jpeg','PDF','JPG','PNG','JPEG'];
             $extension = $file->getClientOriginalExtension();
             $check=in_array($extension,$allowedfileExtension);
             if(!$check){
