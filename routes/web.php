@@ -42,7 +42,7 @@ Route::post('/pemesanan/store', [PemesananController::class, 'store'])->name('pe
 Route::get('/pemesanan/invoice/{uuid}', [PemesananController::class, 'invoice'])->name('pemesanan.invoice');
 
 
-Route::middleware('auth')->prefix('admin')->group(function() {
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function() {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('admin.index');
 
     // PEMESANAN
