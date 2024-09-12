@@ -9,7 +9,7 @@ use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\PaketController as AdminPaketController;
 use App\Http\Controllers\Admin\PemesananController as AdminPemesananController;
-use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\CustomerController as AdminCustomerController;
 use App\Http\Controllers\Admin\JenisPaketController as AdminJenisPaketController;
 
 /*
@@ -47,6 +47,9 @@ Route::middleware('auth')->prefix('admin')->group(function() {
 
     // PEMESANAN
     Route::get('/pemesanan', [AdminPemesananController::class, 'index'])->name('admin.pemesanan.index');
+
+    Route::get('/customer', [AdminCustomerController::class, 'index'])->name('admin.customer.index');
+    Route::get('/customer/{id}', [AdminCustomerController::class, 'show'])->name('admin.customer.show');
 
     // PAKET
     Route::get('/paket/{jenis}', [AdminPaketController::class, 'index'])->name('admin.paket.index');

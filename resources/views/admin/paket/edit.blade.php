@@ -21,13 +21,13 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('admin.paket.store', ['jenis' => $jenis]) }}" method="post" enctype="multipart/form-data"
-                            onsubmit="return confirm('Anda yakin ingin menambahkan data ini?')">
+                        <form action="{{ route('admin.paket.update', ['jenis' => $jenis, 'id' => $data->id]) }}" method="post" enctype="multipart/form-data"
+                            onsubmit="return confirm('Anda yakin ingin memperbarui data ini?')">
                             @csrf
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Nama Paket</label>
                                 <div class="col-sm-10">
-                                    <input required type="text" class="form-control required " placeholder="Nama Paket" name="nama" id="name"
+                                    <input required type="text" class="form-control required " placeholder="Nama Paket" name="nama" id="name" value="{{ $data->nama }}"
                                     onkeyup="
                                         var slug = document.getElementById('name').value;
                                         slug = slug.replace(/ /g,'-');
@@ -42,7 +42,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Slug</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="Slug" id="slug" readonly>
+                                    <input type="text" class="form-control" placeholder="Slug" id="slug" readonly value="{{ $data->slug }}">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -54,7 +54,7 @@
                                                 Rp.
                                             </div>
                                         </div><!--  -->
-                                        <input type="text" class="form-control currency required" name="nominal" placeholder="0" id="nominal">
+                                        <input type="text" class="form-control currency required" name="nominal" placeholder="0" id="nominal" value="{{ number_format($data->nominal, 0, ',', '.') }}">
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                                 <div class="col-sm-3">
                                     <div class="input-group">
 
-                                        <input type="number" class="form-control required" placeholder="Diskon" value="0" id="diskon" name="diskon">
+                                        <input type="number" class="form-control required" placeholder="Diskon" value="0" id="diskon" name="diskon" value="{{ $data->diskon }}">
                                         <div class="input-group-text">
                                             <div class="">
                                                 %
@@ -76,12 +76,14 @@
                             <div class="form-group row">
                                 <label required class="col-sm-2 col-form-label">Keterangan</label>
                                 <div class="col-sm-10">
-                                    <textarea class="content" name="keterangan"></textarea>
+                                    <textarea class="content" name="keterangan">{{ $data->keterangan }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Foto Paket</label>
                                 <div class="col-sm-10">
+                                    <img src="{{ asset('storage/gambar/'.$data->gambar) }}" alt="" style="width:300px">
+
                                     <div class="mb-3">
                                         <input class="form-control" type="file" id="formFile" name="gambar">
                                     </div>

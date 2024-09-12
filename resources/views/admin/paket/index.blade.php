@@ -30,23 +30,29 @@
                             <table id="file-datatable" class="table table-bordered text-nowrap key-buttons border-bottom">
                                 <thead>
                                     <tr>
+                                        <th class="border-bottom-0">No</th>
                                         <th class="border-bottom-0">Nama</th>
                                         <th class="border-bottom-0">Keterangan</th>
-                                        <th class="border-bottom-0">Jenis</th>
-                                        <th class="border-bottom-0">Aktif</th>
+                                        <th class="border-bottom-0">Harga</th>
+                                        <th class="border-bottom-0">Diskon</th>
                                         <th class="border-bottom-0">Gambar</th>
                                         <th class="border-bottom-0" width="100px"></th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    @foreach ($pakets as $item)
+                                    @foreach ($pakets as $index => $item)
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td>{{ $item->nama }}</td>
+                                            <td>{{ $item->keterangan }}</td>
+                                            <td>{{ 'Rp. ' . number_format($item->nominal, 0, ',', '.') }}</td>
+                                            <td>{{ $item->diskon }}</td>
+                                            <td>
+                                                <a href="{{ asset('storage/gambar/'.$item->gambar) }}" target="_blank">
+                                                    <img src="{{ asset('storage/gambar/'.$item->gambar) }}" alt="" width="100px">
+                                                </a>
+                                            </td>
                                             <td>
                                                 <a href="{{ route('admin.paket.edit', ['jenis' => $jenis, 'id' => $item->id]) }}" class="btn btn-info">Edit</a>
                                                 <a href="{{ route('admin.paket.destroy', ['jenis' => $jenis, 'id' => $item->id]) }}" class="btn btn-danger" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Hapus</a>
