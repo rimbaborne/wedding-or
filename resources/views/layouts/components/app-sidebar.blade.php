@@ -2,7 +2,7 @@
 					<div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
 						<div class="app-sidebar">
 							<div class="side-header">
-								<a class="header-brand1" href="{{url('index')}}">
+								<a class="header-brand1" href="{{url('/')}}">
 									<img src="{{asset('build/assets/images/brand/logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
 									<img src="{{asset('build/assets/images/brand/logo-1.png')}}" class="header-brand-img toggle-logo"
 										alt="logo">
@@ -22,6 +22,10 @@
 										<h3>Main</h3>
 									</li>
                                     <li>
+										<a class="side-menu__item has-link" href="{{url('/')}}"><i class="side-menu__icon fe fe-home"></i><span
+												class="side-menu__label">Home</span></a>
+									</li>
+                                    <li>
 										<a class="side-menu__item has-link" href="{{url('tentang')}}"><i class="side-menu__icon fe fe-cloud"></i><span
 												class="side-menu__label">Tentang</span></a>
 									</li>
@@ -30,7 +34,7 @@
 												class="side-menu__label">Paket</span></a>
 									</li>
                                     <li>
-										<a class="side-menu__item has-link" href="{{url('kontak')}}"><i class="side-menu__icon fe fe-home"></i><span
+										<a class="side-menu__item has-link" href="{{url('kontak')}}"><i class="side-menu__icon fe fe-phone"></i><span
 												class="side-menu__label">Kontak</span></a>
 									</li>
                                     <li>

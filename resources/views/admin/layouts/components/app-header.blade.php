@@ -5,9 +5,7 @@
 							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0);"></a>
 							<!-- sidebar-toggle-->
 							<a class="logo-horizontal " href="{{url('/')}}">
-								<img src="{{asset('build/assets/images/brand/logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
-								<img src="{{asset('build/assets/images/brand/logo-3.png')}}" class="header-brand-img light-logo1"
-									alt="logo">
+                                <h3 class="font-weight-bold mb-0">Wedding Or</h3>
 							</a>
 							<!-- LOGO -->
 

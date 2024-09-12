@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Paket;
 
 class WebsiteController extends Controller
 {
+    public function index()
+    {
+        $pakets = Paket::where('jenis_paket_id', 1)->get();
+        return view('pages.index', compact('pakets'));
+    }
     public function kontak()
     {
         return view('pages.kontak');
@@ -20,4 +26,5 @@ class WebsiteController extends Controller
     {
         return view('pages.galeri');
     }
+
 }

@@ -23,11 +23,7 @@ use App\Http\Controllers\Admin\JenisPaketController as AdminJenisPaketController
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/', [DashboardsController::class, 'index'])->name('dashboard.index');
+Route::get('/', [WebsiteController::class, 'index'])->name('website.index');
 Route::get('/kontak', [WebsiteController::class, 'kontak'])->name('website.kontak');
 Route::get('/tentang', [WebsiteController::class, 'tentang'])->name('website.tentang');
 Route::get('/galeri', [WebsiteController::class, 'galeri'])->name('website.galeri');

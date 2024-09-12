@@ -57,34 +57,91 @@
             <div class="card-body text-center">
                 <i class="fa fa-pie-chart text-info fa-3x text-info-shadow"></i>
                 <h6 class="mt-4 mb-2">Paket Wedding</h6>
-                <h2 class="mb-2  number-font">Banyak Pilihan</h2>
+                <h2 class="mb-2 number-font">Banyak Pilihan</h2>
             </div>
         </div>
     </div><!-- COL END -->
 </div>
 
+<div class="row" style="margin-top: 100px">
+    <div class="col-md-12 text-center">
+        <h1 class="font-weight-bold">Paket Rekomendasi</h1>
+    </div>
+</div>
+
 <div class="row py-4">
-    @for ($i = 0; $i < 4; $i++)
-        <div class="col-md-6 col-xxl-3 col-xl-6 col-sm-6">
+    @foreach ($pakets as $item)
+        <div class="col-md-6 col-xl-4  col-sm-6">
             <div class="card item-card">
-                <div class="card-body">
+                @if ($item->diskon != 0)
+                    <span class="ribbon">
+                        <span>{{ $item->diskon }}%</span>
+                    </span>
+                @endif
+                <div class="product-grid6 card-body">
                     <div class="product-image6">
                         <a href="javascript:void(0);">
-                            <img class="img-fluid" src="{{asset('build/assets/images/pngs/9.png')}}" alt="img">
+                            <img class="img-fluid" src="{{asset('storage/gambar/1.png')}}" alt="img">
                         </a>
                     </div>
-                    <div class="product-content text-center">
-                        <h4 class="title"><a href="javascript:void(0);">Paket 1</a></h4>
-                        <h3 class="price">Rp 30.000.000</h3>
+                    <div class=" text-center">
+                        {{-- <div class="text-center mb-2 text-warning">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div> --}}
+                        <h3 class="font-weight-bold mt-3"><a href="javascript:void(0);">{{ $item->nama }}</a></h3>
+                        @php
+                            $nominal_diskon = $item->nominal - ($item->nominal * $item->diskon / 100);
+                        @endphp
+                        <div class="price">
+                            @if ($item->diskon > 0)
+                                Rp {{ number_format($nominal_diskon,0,',','.') }}
+                                <span class="ms-4">Rp {{ number_format($item->nominal,0,',','.') }}</span>
+                            @else
+                                Rp {{ number_format($item->nominal,0,',','.') }}
+                            @endif
+                        </div>
                     </div>
-                    <div class="text-center pt-4">
-                        <a class="btn btn-primary">Pesan <i class="fa fa-shopping-cart"></i> </a>
-                        <a class="btn btn-outline-primary">Info</a>
+                    <div class="row">
+                        <div class="col-sm-6 mr-5 ml-5 mt-4">
+                            <button type="button" class="btn btn-block btn-outline-primary" data-bs-toggle="modal" data-bs-target="#info{{ $item->id }}">
+                                Info
+                            </button>
+                        </div>
+                        <div class="col-sm-6 mr-5 ml-5 mt-4">
+                            <a href="javascript:void(0);" class="btn btn-block btn-info">Pesan</a>
+                        </div>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="info{{ $item->id }}" tabindex="-1" aria-labelledby="info{{ $item->id }}Label" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="info{{ $item->id }}Label">{{ $item->nama }}</h3>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="text-center">
+                                        <img src="{{ asset('storage/gambar/' . $item->gambar) }}" width="100%" alt="{{ $item->nama }}">
+                                    </div>
+                                    <div class="mt-4">
+                                        {!! $item->keterangan !!}
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    @endfor
+    @endforeach
 
 </div>
 
