@@ -67,6 +67,11 @@
 													<a class="dropdown-item" href="{{url('profile')}}">
 														<i class="dropdown-icon fe fe-user"></i> Profile
 													</a>
+													@if (Auth::user()->hasRole('admin'))
+													<a class="dropdown-item" href="{{url('admin/')}}">
+														<i class="dropdown-icon fe fe-home"></i> Admin Dashboard
+													</a>
+													@endif
 													<a class="dropdown-item" href="{{url('auth/logout')}}">
 														<i class="dropdown-icon fe fe-alert-circle"></i> Sign out
 													</a>
