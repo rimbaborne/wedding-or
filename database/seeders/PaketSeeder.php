@@ -54,7 +54,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 80000000,
                 'diskon' => 0,
                 'keterangan' => 'Paket pernikahan basic dengan harga terjangkau, termasuk dekorasi minimalis, catering 300 porsi, dokumentasi sederhana, dan entertaiment akustik',
-                'gambar' => 'rekomendasi_basic.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 1, // Rekomendasi
             ],
             [
@@ -63,7 +63,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 150000000,
                 'diskon' => 0,
                 'keterangan' => 'Paket rekomendasi silver dengan dekorasi lebih lengkap, catering 500 porsi, dokumentasi standar, dan entertaiment full band',
-                'gambar' => 'rekomendasi_silver.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 1, // Rekomendasi
             ],
             [
@@ -72,7 +72,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 300000000,
                 'diskon' => 0,
                 'keterangan' => 'Paket rekomendasi gold untuk pernikahan mewah, termasuk dekorasi eksklusif, catering 800 porsi, dokumentasi full day, dan entertaiment dengan efek lighting',
-                'gambar' => 'rekomendasi_gold.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 1, // Rekomendasi
             ],
 
@@ -83,7 +83,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 7500000,
                 'diskon' => 0,
                 'keterangan' => 'Tema pernikahan indoor sederhana namun elegan, termasuk dekorasi minimalis, dokumentasi standar, dan entertaiment akustik',
-                'gambar' => 'tema_indoor_basic.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 2, // Tema
             ],
             [
@@ -92,7 +92,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 10000000,
                 'diskon' => 0,
                 'keterangan' => 'Tema pernikahan indoor dengan sentuhan modern, termasuk dekorasi lebih lengkap, dokumentasi standar, dan entertaiment full band',
-                'gambar' => 'tema_indoor_silver.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 2, // Tema
             ],
             [
@@ -101,7 +101,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 15000000,
                 'diskon' => 0,
                 'keterangan' => 'Tema pernikahan outdoor dengan dekorasi elegan, termasuk dokumentasi standar, dan entertaiment full band',
-                'gambar' => 'tema_outdoor_silver.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 2, // Tema
             ],
 
@@ -112,7 +112,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 10000000,
                 'diskon' => 0,
                 'keterangan' => 'Catering 300 porsi dengan pilihan menu tradisional, termasuk makanan ringan, makanan utama, dan makanan penutup',
-                'gambar' => 'catering_basic.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 3, // Catering
             ],
             [
@@ -121,7 +121,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 20000000,
                 'diskon' => 0,
                 'keterangan' => 'Catering 500 porsi dengan menu internasional, termasuk makanan ringan, makanan utama, dan makanan penutup',
-                'gambar' => 'catering_silver.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 3, // Catering
             ],
             [
@@ -130,7 +130,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 30000000,
                 'diskon' => 0,
                 'keterangan' => 'Catering 800 porsi dengan 5 stall tambahan, termasuk makanan ringan, makanan utama, dan makanan penutup',
-                'gambar' => 'catering_gold.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 3, // Catering
             ],
 
@@ -141,7 +141,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 10000000,
                 'diskon' => 0,
                 'keterangan' => 'Paket band akustik dengan sound system standar, termasuk 4 jam pemotretan dan 2 orang pemusik',
-                'gambar' => 'entertaimen_basic.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 4, // Entertaiment
             ],
             [
@@ -150,7 +150,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 20000000,
                 'diskon' => 0,
                 'keterangan' => 'Paket band full dengan sound system profesional, termasuk 8 jam pemotretan dan 5 orang pemusik',
-                'gambar' => 'entertaimen_silver.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 4, // Entertaiment
             ],
             [
@@ -159,7 +159,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 30000000,
                 'diskon' => 0,
                 'keterangan' => 'Paket DJ dan band dengan efek lighting, termasuk 12 jam pemotretan dan 6 orang pemusik',
-                'gambar' => 'entertaimen_gold.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 4, // Entertaiment
             ],
 
@@ -170,7 +170,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 10000000,
                 'diskon' => 0,
                 'keterangan' => 'Dekorasi pelaminan dengan bunga segar standar, termasuk 4 jam pemotretan dan 2 orang pemusik',
-                'gambar' => 'dekorasi_basic.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 5, // Dekorasi
             ],
             [
@@ -179,7 +179,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 15000000,
                 'diskon' => 0,
                 'keterangan' => 'Dekorasi pelaminan modern dengan lighting, termasuk 8 jam pemotretan dan 4 orang pemusik',
-                'gambar' => 'dekorasi_silver.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 5, // Dekorasi
             ],
             [
@@ -188,7 +188,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 25000000,
                 'diskon' => 0,
                 'keterangan' => 'Dekorasi eksklusif dengan bunga premium, termasuk 12 jam pemotretan dan 6 orang pemusik',
-                'gambar' => 'dekorasi_gold.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 5, // Dekorasi
             ],
 
@@ -199,7 +199,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 5000000,
                 'diskon' => 0,
                 'keterangan' => 'Paket dokumentasi sederhana untuk 4 jam pemotretan, termasuk 2 orang pemusik',
-                'gambar' => 'dokumentasi_basic.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 6, // Dokumentasi
             ],
             [
@@ -208,7 +208,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 10000000,
                 'diskon' => 0,
                 'keterangan' => 'Paket dokumentasi dengan 8 jam pemotretan dan video',
-                'gambar' => 'dokumentasi_silver.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 6, // Dokumentasi
             ],
             [
@@ -217,7 +217,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 20000000,
                 'diskon' => 0,
                 'keterangan' => 'Paket dokumentasi full day dengan video cinematic',
-                'gambar' => 'dokumentasi_gold.jpg',
+                'gambar' => '1.png',
                 'jenis_paket_id' => 6, // Dokumentasi
             ],
 

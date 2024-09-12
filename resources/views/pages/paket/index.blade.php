@@ -34,7 +34,8 @@
                                                 Rp.
                                             </div>
                                         </div><!--  -->
-                                        <input type="text" id="min" class="form-control" name="min" value="0">
+                                        <input type="hidden" id="min_hidden" name="min" >
+                                        <input type="text" id="min" class="form-control" onkeyup="paket()" onkeypress="paket()" onmouseover="paket()" onclick="paket()" value="{{ request()->get('min') ?? 0 }}">
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +48,8 @@
                                                 Rp.
                                             </div>
                                         </div><!--  -->
-                                        <input type="text" id="max" class="form-control" name="min" value="0">
+                                        <input type="hidden" id="max_hidden" name="max" >
+                                        <input type="text" id="max" class="form-control" onkeyup="paket()" onkeypress="paket()" onmouseover="paket()" onclick="paket()"  value="{{ request()->get('max') ?? 0 }}">
                                     </div>
                                 </div>
                             </div>
@@ -60,231 +62,88 @@
                     </form>
                 </div>
             </div>
-            {{-- <div class="row">
-                <div class="col-md-6 col-xxl-3 col-xl-6 col-sm-6">
-                    <div class="card item-card">
-                        <div class="ribbone">
-                            <div class="ribbon"><span>new</span></div>
-                        </div>
-                        <div class="product-grid6  card-body">
-                            <div class="product-image6">
-                                <a href="javascript:void(0);">
-                                    <img class="img-fluid" src="{{asset('build/assets/images/pngs/9.png')}}" alt="img">
-                                </a>
-                            </div>
-                            <div class="product-content text-center">
-                                <div class="mb-2 text-warning">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <h4 class="title"><a href="javascript:void(0);">Perfume</a></h4>
-                                <div class="price">$16,599<span class="ms-4">$19,799</span></div>
-                            </div>
-                            <ul class="icons">
-                                <li><a href="{{url('shop-description')}}"><i class="fa fa-search "></i></a></li>
-                                <li><a href="{{url('wishlist')}}"><i class="fa fa-heart-o"></i></a></li>
-                                <li><a href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
+            <div class="row">
+                @if ($pakets == null)
+                    <div class="col-12 text-center">
+                        <h4 class="mt-10">Silahkan Cari Paket Berdasarkan Harga</h4>
                     </div>
-                </div>
-                <div class="col-md-6 col-xxl-3 col-xl-6 col-sm-6">
-                    <div class="card item-card">
-                        <span class="ribbon">
-                            <span>25%</span>
-                        </span>
-                        <div class="product-grid6 card-body">
-                            <div class="product-image6">
-                                <a href="javascript:void(0);">
-                                    <img class="img-fluid" src="{{asset('build/assets/images/pngs/1.png')}}" alt="img">
-                                </a>
-                            </div>
-                            <div class="product-content text-center">
-                                <div class="text-center mb-2 text-warning">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
+                @else
+                    @foreach ($pakets as $item)
+                        <div class="col-md-6 col-xxl-3 col-xl-6 col-sm-6">
+                            <div class="card item-card">
+                                @if ($item->diskon != 0)
+                                    <span class="ribbon">
+                                        <span>{{ $item->diskon }}%</span>
+                                    </span>
+                                @endif
+                                <div class="product-grid6 card-body">
+                                    <div class="product-image6">
+                                        <a href="javascript:void(0);">
+                                            <img class="img-fluid" src="{{asset('storage/gambar/1.png')}}" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class=" text-center">
+                                        {{-- <div class="text-center mb-2 text-warning">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div> --}}
+                                        <h3 class="font-weight-bold mt-3"><a href="javascript:void(0);">{{ $item->nama }}</a></h3>
+                                        @php
+                                            $nominal_diskon = $item->nominal - ($item->nominal * $item->diskon / 100);
+                                        @endphp
+                                        <div class="price">
+                                            @if ($item->diskon > 0)
+                                                Rp {{ number_format($nominal_diskon,0,',','.') }}
+                                                <span class="ms-4">Rp {{ number_format($item->nominal,0,',','.') }}</span>
+                                            @else
+                                                Rp {{ number_format($item->nominal,0,',','.') }}
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 mr-5 ml-5 mt-4">
+                                            <button type="button" class="btn btn-block btn-outline-primary" data-bs-toggle="modal" data-bs-target="#info{{ $item->id }}">
+                                                Info
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-6 mr-5 ml-5 mt-4">
+                                            <a href="javascript:void(0);" class="btn btn-block btn-info">Pesan</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="info{{ $item->id }}" tabindex="-1" aria-labelledby="info{{ $item->id }}Label" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="modal-title" id="info{{ $item->id }}Label">{{ $item->nama }}</h3>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="text-center">
+                                                        <img src="{{ asset('storage/gambar/' . $item->gambar) }}" width="100%" alt="{{ $item->nama }}">
+                                                    </div>
+                                                    <div class="mt-4">
+                                                        {!! $item->keterangan !!}
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <h4 class="title"><a href="javascript:void(0);">Camera</a></h4>
-                                <div class="price">$529<span class="ms-4">$799</span></div>
                             </div>
-                            <ul class="icons">
-                                <li><a href="{{url('shop-description')}}"><i class="fa fa-search"></i></a></li>
-                                <li><a href="{{url('wishlist')}}"><i class="fa fa-heart-o"></i></a></li>
-                                <li><a href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xxl-3 col-xl-6 col-sm-6">
-                    <div class="card item-card">
-                        <div class="product-grid6  card-body">
-                            <div class="product-image6">
-                                <a href="javascript:void(0);">
-                                    <img class="img-fluid" src="{{asset('build/assets/images/pngs/7.png')}}" alt="img">
-                                </a>
-                            </div>
-                            <div class="product-content text-center">
-                                <div class="text-center mb-2 text-warning">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
-                                </div>
-                                <h4 class="title"><a href="javascript:void(0);">Smart Watch</a></h4>
-                                <div class="price">$25,239<span class="ms-4">$34,399</span></div>
-                            </div>
-                            <ul class="icons">
-                                <li><a href="{{url('shop-description')}}"><i class="fa fa-search"></i></a></li>
-                                <li><a href="{{url('wishlist')}}"><i class="fa fa-heart-o"></i></a></li>
-                                <li><a href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xxl-3 col-xl-6 col-sm-6">
-                    <div class="card item-card">
-                        <div class="product-grid6  card-body">
-                            <div class="product-image6">
-                                <a href="javascript:void(0);">
-                                    <img class="img-fluid" src="{{asset('build/assets/images/pngs/2.png')}}" alt="img">
-                                </a>
-                            </div>
-                            <div class="product-content text-center">
-                                <div class="text-center mb-2 text-warning">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <h4 class="title"><a href="javascript:void(0);">Flower Pot</a></h4>
-                                <div class="price">$345<span class="ms-4">$459</span></div>
-                            </div>
-                            <ul class="icons">
-                                <li><a href="{{url('shop-description')}}"><i class="fa fa-search"></i></a></li>
-                                <li><a href="{{url('wishlist')}}"><i class="fa fa-heart-o"></i></a></li>
-                                <li><a href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xxl-3 col-xl-6 col-sm-6">
-                    <div class="card item-card">
-                        <div class="product-grid6  card-body ">
-                            <div class="product-image6">
-                                <a href="javascript:void(0);">
-                                    <img class="img-fluid" src="{{asset('build/assets/images/pngs/4.png')}}" alt="img">
-                                </a>
-                            </div>
-                            <div class="product-content text-center">
-                                <div class="text-center mb-2 text-warning">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <h4 class="title"><a href="javascript:void(0);">Womens Bag</a></h4>
-                                <div class="price">$277<span class="ms-4">$456</span></div>
-                            </div>
-                            <ul class="icons">
-                                <li><a href="{{url('shop-description')}}"><i class="fa fa-search"></i></a></li>
-                                <li><a href="{{url('wishlist')}}"><i class="fa fa-heart-o"></i></a></li>
-                                <li><a href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xxl-3 col-xl-6 col-sm-6">
-                    <div class="card item-card">
-                        <div class="product-grid6  card-body">
-                            <div class="product-image6">
-                                <a href="javascript:void(0);">
-                                    <img class="img-fluid" src="{{asset('build/assets/images/pngs/8.png')}}" alt="img">
-                                </a>
-                            </div>
-                            <div class="product-content text-center">
-                                <div class="text-center mb-2 text-warning">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
-                                </div>
-                                <h4 class="title"><a href="javascript:void(0);">Stylish Shoes</a></h4>
-                                <div class="price">$567<span class="ms-4">$866</span></div>
-                            </div>
-                            <ul class="icons">
-                                <li><a href="{{url('shop-description')}}"><i class="fa fa-search"></i></a></li>
-                                <li><a href="{{url('wishlist')}}"><i class="fa fa-heart-o"></i></a></li>
-                                <li><a href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xxl-3 col-xl-6 col-sm-6">
-                    <div class="card item-card">
-                        <div class="product-grid6  card-body">
-                            <div class="product-image6">
-                                <a href="javascript:void(0);">
-                                    <img class="img-fluid" src="{{asset('build/assets/images/pngs/3.png')}}" alt="img">
-                                </a>
-                            </div>
-                            <div class="product-content text-center">
-                                <div class="text-center mb-2 text-warning">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <h4 class="title"><a href="javascript:void(0);">HeadPhones</a></h4>
-                                <div class="price">$455<span class="ms-4">$567</span></div>
-                            </div>
-                            <ul class="icons">
-                                <li><a href="{{url('shop-description')}}"><i class="fa fa-search"></i></a></li>
-                                <li><a href="{{url('wishlist')}}"><i class="fa fa-heart-o"></i></a></li>
-                                <li><a href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xxl-3 col-xl-6 col-sm-6">
-                    <div class="card item-card">
-                        <div class="product-grid6  card-body">
-                            <div class="product-image6">
-                                <a href="javascript:void(0);">
-                                    <img class="img-fluid" src="{{asset('build/assets/images/pngs/5.png')}}" alt="img">
-                                </a>
-                            </div>
-                            <div class="product-content text-center">
-                                <div class="text-center mb-2 text-warning">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <h4 class="title"><a href="javascript:void(0);">Chair</a></h4>
-                                <div class="price">$345<span class="ms-4">$499</span></div>
-                            </div>
-                            <ul class="icons">
-                                <li><a href="{{url('shop-description')}}"><i class="fa fa-search"></i></a></li>
-                                <li><a href="{{url('wishlist')}}"><i class="fa fa-heart-o"></i></a></li>
-                                <li><a href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
+
             </div>
-            <div class="mb-5">
+            {{-- <div class="mb-5">
                 <div class="float-end">
                     <ul class="pagination ">
                         <li class="page-item page-prev disabled">
@@ -313,7 +172,8 @@
 		<script src="{{asset('build/assets/plugins/select2/select2.full.min.js')}}"></script>
 		@vite('resources/assets/js/select2.js')
         <script>
-            var currencyFormatter = function(event) {
+            function paket() {
+                var currencyFormatter = function(event) {
                 var el = this;
                 var x = event.keyCode;
                 if ( (x > 64 && x < 91) || (x < 48 || x > 57) )
@@ -326,6 +186,14 @@
             };
             document.getElementById("min").addEventListener("keyup", currencyFormatter);
             document.getElementById("max").addEventListener("keyup", currencyFormatter);
+
+            document.getElementById("min").addEventListener("keydown", currencyFormatter);
+            document.getElementById("max").addEventListener("keydown", currencyFormatter);
+
+            document.getElementById("min_hidden").value = document.getElementById("min").value.replace(/[^\d]/g, "");
+            document.getElementById("max_hidden").value = document.getElementById("max").value.replace(/[^\d]/g, "");
+            }
+
         </script>
 
         {{-- <script src="https://unpkg.com/imask"></script>
