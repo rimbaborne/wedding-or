@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Pemesanan;
+use App\Models\User;
 
-class PemesananController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $pemesanans = Pemesanan::latest()->get();
-        return view('admin.pemesanan.index', compact('pemesanans'));
+        $customers = User::all();
+        return view('admin.customer.index', compact('customers'));
     }
 
     /**
@@ -38,8 +38,8 @@ class PemesananController extends Controller
      */
     public function show(string $id)
     {
-        $pemesanan = Pemesanan::find($id);
-        return view('admin.pemesanan.show', compact('pemesanan'));
+        $customer = User::find($id);
+        return view('admin.customer.show', compact('customer'));
     }
 
     /**

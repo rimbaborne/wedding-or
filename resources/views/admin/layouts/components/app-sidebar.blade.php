@@ -32,6 +32,12 @@
                                         </a>
 									</li>
                                     <li>
+										<a class="side-menu__item has-link {{ request()->is('admin/customer') ? 'active border border-primary rounded' : '' }}" href="{{url('admin/customer')}}">
+                                            <i class="side-menu__icon fe fe-users"></i>
+                                            <span class="side-menu__label">Customer</span>
+                                        </a>
+									</li>
+                                    <li>
 										<a class="side-menu__item has-link {{ request()->is('admin/jenis-paket') ? 'active border border-primary rounded' : '' }}" href="{{url('admin/jenis-paket')}}">
                                             <i class="side-menu__icon fe fe-list"></i>
                                             <span class="side-menu__label">Jenis Paket</span>
