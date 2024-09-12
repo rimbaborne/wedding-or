@@ -37,7 +37,7 @@
                                     @foreach ($customers as $index => $customer)
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
-                                            <td>{{ $customer->nama }}</td>
+                                            <td>{{ $customer->name }}</td>
                                             <td>{{ $customer->email }}</td>
                                             <td>
                                                 <a href="{{ route('admin.customer.show', ['id' => $customer->id]) }}" class="btn btn-sm btn-info">Lihat Pemesanan</a>
