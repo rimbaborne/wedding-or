@@ -54,11 +54,15 @@ class PaketSeeder extends Seeder
                 'nominal' => 80000000,
                 'diskon' => 0,
                 'keterangan' => 'Paket pernikahan yang paling sederhana namun tetap elegan.<br>
+                    <br>
                     <ul>
                         <li> - Dekorasi minimalis namun tetap elegan</li>
                         <li> - Catering 300 porsi</li>
                         <li> - Dokumentasi sederhana namun tetap mempunyai nilai yang tinggi</li>
                         <li> - Entertaiment akustik</li>
+                        <li> - Penyediaan peralatan sound system, lighting, dan peralatan lainnya</li>
+                        <li> - Penyediaan tim MC yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim dokumentasi yang handal dan berpengalaman</li>
                     </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 1, // Rekomendasi
@@ -69,11 +73,16 @@ class PaketSeeder extends Seeder
                 'nominal' => 150000000,
                 'diskon' => 0,
                 'keterangan' => 'Paket pernikahan yang lebih lengkap dan mewah.<br>
+                    <br>
                     <ul>
                         <li> - Dekorasi yang lebih lengkap dan mewah</li>
                         <li> - Catering 500 porsi</li>
                         <li> - Dokumentasi standar yang lengkap dan rapih</li>
                         <li> - Entertaiment full band</li>
+                        <li> - Penyediaan peralatan sound system, lighting, dan peralatan lainnya</li>
+                        <li> - Penyediaan tim MC yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim dokumentasi yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim dekorasi yang handal dan berpengalaman</li>
                     </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 1, // Rekomendasi
@@ -84,11 +93,18 @@ class PaketSeeder extends Seeder
                 'nominal' => 300000000,
                 'diskon' => 0,
                 'keterangan' => 'Paket pernikahan yang paling lengkap dan mewah.<br>
+                    <br>
                     <ul>
                         <li> - Dekorasi yang paling lengkap dan mewah</li>
                         <li> - Catering 800 porsi</li>
                         <li> - Dokumentasi full day yang lengkap dan rapih</li>
                         <li> - Entertaiment dengan efek lighting</li>
+                        <li> - Penyediaan peralatan sound system, lighting, dan peralatan lainnya</li>
+                        <li> - Penyediaan tim MC yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim dokumentasi yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim dekorasi yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim fotografer yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim videografer yang handal dan berpengalaman</li>
                     </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 1, // Rekomendasi
@@ -101,11 +117,16 @@ class PaketSeeder extends Seeder
                 'nominal' => 7500000,
                 'diskon' => 0,
                 'keterangan' => '<p>Paket tema pernikahan indoor sederhana namun elegan, termasuk dekorasi minimalis, dokumentasi standar, dan entertaiment akustik.</p>
+                    <br>
                     <ul>
                         <li> - Dekorasi minimalis namun tetap elegan</li>
                         <li> - Catering 300 porsi</li>
                         <li> - Dokumentasi standar dengan 4 jam pemotretan dan 2 orang pemusik</li>
                         <li> - Entertaiment akustik</li>
+                        <li> - Penyediaan peralatan sound system, lighting, dan peralatan lainnya</li>
+                        <li> - Penyediaan tim MC yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim dokumentasi yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim dekorasi yang handal dan berpengalaman</li>
                     </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 2, // Tema
@@ -116,11 +137,18 @@ class PaketSeeder extends Seeder
                 'nominal' => 10000000,
                 'diskon' => 0,
                 'keterangan' => '<p>Paket tema pernikahan indoor dengan sentuhan modern, termasuk dekorasi lebih lengkap, dokumentasi standar, dan entertaiment full band.</p>
+                    <br>
                     <ul>
                         <li> - Dekorasi lebih lengkap dan modern</li>
                         <li> - Catering 500 porsi</li>
                         <li> - Dokumentasi standar dengan 8 jam pemotretan dan 5 orang pemusik</li>
                         <li> - Entertaiment full band</li>
+                        <li> - Penyediaan peralatan sound system, lighting, dan peralatan lainnya</li>
+                        <li> - Penyediaan tim MC yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim dokumentasi yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim dekorasi yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim fotografer yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim videografer yang handal dan berpengalaman</li>
                     </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 2, // Tema
@@ -131,12 +159,20 @@ class PaketSeeder extends Seeder
                 'nominal' => 15000000,
                 'diskon' => 0,
                 'keterangan' => '<p>Paket tema pernikahan outdoor dengan dekorasi elegan, termasuk dokumentasi standar, dan entertaiment full band.</p>
+                    <br>
                     <ul>
                         <li> - Dekorasi elegan</li>
                         <li> - Catering 800 porsi</li>
                         <li> - Dokumentasi standar dengan 12 jam pemotretan dan 6 orang pemusik</li>
                         <li> - Entertaiment full band</li>
-                    </ul>',
+                        <li> - Penyediaan peralatan sound system, lighting, dan peralatan lainnya</li>
+                        <li> - Penyediaan tim MC yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim dokumentasi yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim dekorasi yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim fotografer yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim videografer yang handal dan berpengalaman</li>
+                        <li> - Penyediaan tim drone yang handal dan berpengalaman</li>
+                        </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 2, // Tema
             ],
@@ -148,6 +184,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 10000000,
                 'diskon' => 0,
                 'keterangan' => '<p>Paket catering 300 porsi dengan pilihan menu tradisional, termasuk makanan ringan, makanan utama, dan makanan penutup.</p>
+                    <br>
                     <ul>
                         <li> - Makanan ringan</li>
                         <li> - Makanan utama</li>
@@ -162,6 +199,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 20000000,
                 'diskon' => 0,
                 'keterangan' => '<p>Paket catering 500 porsi dengan menu internasional, termasuk makanan ringan, makanan utama, dan makanan penutup.</p>
+                    <br>
                     <ul>
                         <li> - Makanan ringan</li>
                         <li> - Makanan utama</li>
@@ -176,6 +214,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 30000000,
                 'diskon' => 0,
                 'keterangan' => '<p>Paket catering 800 porsi dengan 5 stall tambahan, termasuk makanan ringan, makanan utama, dan makanan penutup.</p>
+                    <br>
                     <ul>
                         <li> - Makanan ringan</li>
                         <li> - Makanan utama</li>
@@ -193,6 +232,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 10000000,
                 'diskon' => 0,
                 'keterangan' => '<p>Paket band akustik dengan sound system standar, termasuk 4 jam pemotretan dan 2 orang pemusik.</p>
+                    <br>
                     <ul>
                         <li> - Band akustik</li>
                         <li> - Sound system standar</li>
@@ -208,6 +248,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 20000000,
                 'diskon' => 0,
                 'keterangan' => '<p>Paket band full dengan sound system profesional, termasuk 8 jam pemotretan dan 5 orang pemusik.</p>
+                    <br>
                     <ul>
                         <li> - Band full</li>
                         <li> - Sound system profesional</li>
@@ -223,6 +264,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 30000000,
                 'diskon' => 0,
                 'keterangan' => '<p>Paket DJ dan band dengan efek lighting, termasuk 12 jam pemotretan dan 6 orang pemusik.</p>
+                    <br>
                     <ul>
                         <li> - DJ dan band</li>
                         <li> - Sound system profesional</li>
@@ -240,6 +282,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 10000000,
                 'diskon' => 0,
                 'keterangan' => '<p>Paket dekorasi pelaminan dengan bunga segar standar, termasuk 4 jam pemotretan dan 2 orang pemusik.</p>
+                    <br>
                     <ul>
                         <li> - Dekorasi pelaminan</li>
                         <li> - Bunga segar standar</li>
@@ -255,6 +298,7 @@ class PaketSeeder extends Seeder
                 'nominal' => 15000000,
                 'diskon' => 0,
                 'keterangan' => '<p>Paket dekorasi pelaminan modern dengan lighting, termasuk 8 jam pemotretan dan 4 orang pemusik.</p>
+                    <br>
                     <ul>
                         <li> - Dekorasi pelaminan modern</li>
                         <li> - Lighting</li>
@@ -271,6 +315,7 @@ class PaketSeeder extends Seeder
                 'diskon' => 0,
                 'keterangan' => '<p>Paket dekorasi eksklusif dengan bunga premium yang disusun oleh perancang dekorasi profesional. Dekorasi ini dilengkapi dengan peralatan yang lengkap dan modern, seperti lighting, sound system, dan peralatan pemotretan yang lengkap.</p>
                     <h4>Rangkuman</h4>
+                    <br>
                     <ul>
                         <li> - Dekorasi pelaminan dengan bunga premium</li>
                         <li> - Lighting dan sound system yang modern</li>
@@ -289,6 +334,7 @@ class PaketSeeder extends Seeder
                 'diskon' => 0,
                 'keterangan' => '<p>Paket dokumentasi sederhana yang dilengkapi dengan peralatan yang standard. Paket ini termasuk 2 orang pemusik dan 4 jam pemotretan.</p>
                     <h4>Rangkuman</h4>
+                    <br>
                     <ul>
                         <li> - 4 jam pemotretan</li>
                         <li> - 2 orang pemusik</li>
@@ -303,6 +349,7 @@ class PaketSeeder extends Seeder
                 'diskon' => 0,
                 'keterangan' => '<p>Paket dokumentasi yang dilengkapi dengan peralatan yang modern. Paket ini termasuk 8 jam pemotretan dan video.</p>
                     <h4>Rangkuman</h4>
+                    <br>
                     <ul>
                         <li> - 8 jam pemotretan</li>
                         <li> - Video</li>
@@ -317,6 +364,7 @@ class PaketSeeder extends Seeder
                 'diskon' => 0,
                 'keterangan' => '<p>Paket dokumentasi yang dilengkapi dengan peralatan yang lengkap dan modern. Paket ini termasuk full day pemotretan dan video cinematic.</p>
                     <h4>Rangkuman</h4>
+                    <br>
                     <ul>
                         <li> - Full day pemotretan</li>
                         <li> - Video cinematic</li>

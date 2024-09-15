@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Models\JenisPaket;
 use Illuminate\Support\Facades\View;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,5 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::share('adminSidebar', JenisPaket::all());
+
+        Paginator::useBootstrapFive();
     }
 }

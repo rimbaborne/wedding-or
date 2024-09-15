@@ -9,59 +9,54 @@
 
 @section('content')
 
-<div class="row mt-7">
-    <div class="col-lg-12">
-        <div class="row py-5">
-            <div class="text-center">
-                <h5 class="display-5 fw-semibold">Cari Paket :</h5>
-            </div>
-        </div>
-    </div>
-</div>
     <!-- ROW-1 OPEN -->
-    <div class="row row-cards">
-        <div class="col-12">
-            <div class="card">
-                <div class=" card-body p-4">
-                    <form action="#" method="GET">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="mb-4">
-                                    <label class="form-label">Harga Minimum</label>
-                                    <div class="input-group">
-                                        <div class="input-group-text">
-                                            <div class="">
-                                                Rp.
-                                            </div>
-                                        </div><!--  -->
-                                        <input type="hidden" id="min_hidden" name="min" >
-                                        <input type="text" id="min" class="form-control" onkeyup="paket()" onkeypress="paket()" onmouseover="paket()" onclick="paket()" value="{{ request()->get('min') ?? 0 }}">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="mb-4">
-                                    <label class="form-label">Harga Maximum</label>
-                                    <div class="input-group">
-                                        <div class="input-group-text">
-                                            <div class="">
-                                                Rp.
-                                            </div>
-                                        </div><!--  -->
-                                        <input type="hidden" id="max_hidden" name="max" >
-                                        <input type="text" id="max" class="form-control" onkeyup="paket()" onkeypress="paket()" onmouseover="paket()" onclick="paket()"  value="{{ request()->get('max') ?? 0 }}">
-                                    </div>
-                                </div>
-                            </div>
+    <div class="mt-5 row row-cards">
+        <div class="col-xl-2 col-lg-4">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title"> Jenis Paket</div>
                         </div>
+                        <div class="card-body m-2">
+                            <form action="{{ route('paket.list') }}" method="GET">
+                                @foreach ($jenispakets as $jenispaket)
+                                    <div  class="custom-checkbox custom-control mb-2">
+                                        <input type="checkbox" data-checkboxes="mygroup" id="checkbox-{{ $jenispaket->id }}" class="custom-control-input" name="{{ $jenispaket->slug }}"
+                                            @if(request()->get($jenispaket->slug) == 'on') checked @endif
+                                            @if(!request()->query() || count(request()->query()) == 0) checked @endif
+                                        >
+                                        <label for="checkbox-{{ $jenispaket->id }}" class="custom-control-label">{{ $jenispaket->nama }}</label>
+                                    </div>
+                                @endforeach
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-primary" onclick="return filterPaket()">
+                                        Filter Paket <i class="fa fa-arrow-right ms-2"></i>
+                                    </button>
+                                </div>
+                            </form>
 
-                        <div class="text-center mb-4">
-                            <button class="btn btn-primary px-5" type="submit"> <i class="fa fa-search"></i> cari</button>
-                            <a href="{{ route('paket.list') }}" class="btn btn-outline-primary px-5"> <i class="fa fa-list"></i> Lihat List Paket saja</a>
+                            <script>
+                                function filterPaket() {
+                                    var checked = false;
+                                    @foreach ($jenispakets as $jenispaket)
+                                        if (document.getElementById('checkbox-{{ $jenispaket->id }}').checked) {
+                                            checked = true;
+                                        }
+                                    @endforeach
+                                    if (!checked) {
+                                        alert('Silahkan pilih jenis paket yang di inginkan!');
+                                        return false;
+                                    }
+                                }
+                            </script>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <div class="col-xl-10 col-lg-8">
             <div class="row">
                 @if ($pakets == null)
                     <div class="col-12 text-center">
