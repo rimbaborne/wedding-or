@@ -120,13 +120,6 @@ class PaketSeeder extends Seeder
                     <br>
                     <ul>
                         <li> - Dekorasi minimalis namun tetap elegan</li>
-                        <li> - Catering 300 porsi</li>
-                        <li> - Dokumentasi standar dengan 4 jam pemotretan dan 2 orang pemusik</li>
-                        <li> - Entertaiment akustik</li>
-                        <li> - Penyediaan peralatan sound system, lighting, dan peralatan lainnya</li>
-                        <li> - Penyediaan tim MC yang handal dan berpengalaman</li>
-                        <li> - Penyediaan tim dokumentasi yang handal dan berpengalaman</li>
-                        <li> - Penyediaan tim dekorasi yang handal dan berpengalaman</li>
                     </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 2, // Tema
@@ -140,15 +133,6 @@ class PaketSeeder extends Seeder
                     <br>
                     <ul>
                         <li> - Dekorasi lebih lengkap dan modern</li>
-                        <li> - Catering 500 porsi</li>
-                        <li> - Dokumentasi standar dengan 8 jam pemotretan dan 5 orang pemusik</li>
-                        <li> - Entertaiment full band</li>
-                        <li> - Penyediaan peralatan sound system, lighting, dan peralatan lainnya</li>
-                        <li> - Penyediaan tim MC yang handal dan berpengalaman</li>
-                        <li> - Penyediaan tim dokumentasi yang handal dan berpengalaman</li>
-                        <li> - Penyediaan tim dekorasi yang handal dan berpengalaman</li>
-                        <li> - Penyediaan tim fotografer yang handal dan berpengalaman</li>
-                        <li> - Penyediaan tim videografer yang handal dan berpengalaman</li>
                     </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 2, // Tema
@@ -162,16 +146,6 @@ class PaketSeeder extends Seeder
                     <br>
                     <ul>
                         <li> - Dekorasi elegan</li>
-                        <li> - Catering 800 porsi</li>
-                        <li> - Dokumentasi standar dengan 12 jam pemotretan dan 6 orang pemusik</li>
-                        <li> - Entertaiment full band</li>
-                        <li> - Penyediaan peralatan sound system, lighting, dan peralatan lainnya</li>
-                        <li> - Penyediaan tim MC yang handal dan berpengalaman</li>
-                        <li> - Penyediaan tim dokumentasi yang handal dan berpengalaman</li>
-                        <li> - Penyediaan tim dekorasi yang handal dan berpengalaman</li>
-                        <li> - Penyediaan tim fotografer yang handal dan berpengalaman</li>
-                        <li> - Penyediaan tim videografer yang handal dan berpengalaman</li>
-                        <li> - Penyediaan tim drone yang handal dan berpengalaman</li>
                         </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 2, // Tema
@@ -186,9 +160,9 @@ class PaketSeeder extends Seeder
                 'keterangan' => '<p>Paket catering 300 porsi dengan pilihan menu tradisional, termasuk makanan ringan, makanan utama, dan makanan penutup.</p>
                     <br>
                     <ul>
-                        <li> - Makanan ringan</li>
-                        <li> - Makanan utama</li>
-                        <li> - Makanan penutup</li>
+                        <li> - Makanan ringan: kue putu, kue cubit, kue pukis, kue makanan ringan lainnya</li>
+                        <li> - Makanan utama: sate, gado-gado, siomay, nasi goreng, dll</li>
+                        <li> - Makanan penutup: es teler, martabak, roti, kue basah, dll</li>
                     </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 3, // Catering
@@ -201,9 +175,9 @@ class PaketSeeder extends Seeder
                 'keterangan' => '<p>Paket catering 500 porsi dengan menu internasional, termasuk makanan ringan, makanan utama, dan makanan penutup.</p>
                     <br>
                     <ul>
-                        <li> - Makanan ringan</li>
-                        <li> - Makanan utama</li>
-                        <li> - Makanan penutup</li>
+                        <li> - Makanan ringan: finger food, canap , kue tart, kue makanan ringan lainnya</li>
+                        <li> - Makanan utama: buffet, menu internasional, seperti pasta, pizza, salad, dll</li>
+                        <li> - Makanan penutup: ice cream, coklat, kue makanan penutup lainnya</li>
                     </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 3, // Catering
@@ -216,10 +190,10 @@ class PaketSeeder extends Seeder
                 'keterangan' => '<p>Paket catering 800 porsi dengan 5 stall tambahan, termasuk makanan ringan, makanan utama, dan makanan penutup.</p>
                     <br>
                     <ul>
-                        <li> - Makanan ringan</li>
-                        <li> - Makanan utama</li>
-                        <li> - Makanan penutup</li>
-                        <li> - 5 stall tambahan</li>
+                        <li> - Makanan ringan: finger food, canap , kue tart, kue makanan ringan lainnya</li>
+                        <li> - Makanan utama: buffet, menu internasional, seperti pasta, pizza, salad, dll</li>
+                        <li> - Makanan penutup: ice cream, coklat, kue makanan penutup lainnya</li>
+                        <li> - 5 stall tambahan: satay, siomay, gado-gado, nasi goreng, dll</li>
                     </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 3, // Catering
@@ -286,8 +260,6 @@ class PaketSeeder extends Seeder
                     <ul>
                         <li> - Dekorasi pelaminan</li>
                         <li> - Bunga segar standar</li>
-                        <li> - 4 jam pemotretan</li>
-                        <li> - 2 orang pemusik</li>
                     </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 5, // Dekorasi
@@ -302,8 +274,6 @@ class PaketSeeder extends Seeder
                     <ul>
                         <li> - Dekorasi pelaminan modern</li>
                         <li> - Lighting</li>
-                        <li> - 8 jam pemotretan</li>
-                        <li> - 4 orang pemusik</li>
                     </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 5, // Dekorasi
@@ -319,8 +289,6 @@ class PaketSeeder extends Seeder
                     <ul>
                         <li> - Dekorasi pelaminan dengan bunga premium</li>
                         <li> - Lighting dan sound system yang modern</li>
-                        <li> - 12 jam pemotretan</li>
-                        <li> - 6 orang pemusik</li>
                     </ul>',
                 'gambar' => '1.png',
                 'jenis_paket_id' => 5, // Dekorasi

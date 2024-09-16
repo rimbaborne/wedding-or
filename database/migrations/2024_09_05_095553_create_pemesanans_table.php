@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->uuid('uuid')->unique()->nullable();
-            $table->string('nama_pemesan');
-            $table->string('no_telepon_pemesan');
-            $table->text('alamat_pemesan');
+            $table->string('nama_pemesan')->nullable();
+            $table->string('no_telepon_pemesan')->nullable();
+            $table->text('alamat_pemesan')->nullable();
             $table->text('keterangan')->nullable();
             $table->json('payment_gateways')->nullable();
-            $table->string('status_pemesanan')->default('DIPROSES'); // DIPROSES, SUDAH DI KONFIRMASI, SELESAI
-            $table->string('status_pembayaran')->default('MENUNGGU PEMBAYARAN'); // MENUNGGU PEMBAYARAN, KONFIRMASI PEMBAYARAN, LUNAS
+            $table->string('status_pemesanan')->default('PENDING'); // DIPROSES, SUDAH DI KONFIRMASI, SELESAI
+            $table->string('status_pembayaran')->nullable(); // MENUNGGU PEMBAYARAN, KONFIRMASI PEMBAYARAN, LUNAS
             $table->timestamps();
         });
     }

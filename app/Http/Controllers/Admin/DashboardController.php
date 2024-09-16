@@ -9,6 +9,16 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        $datapemesanan = \App\Models\Pemesanan::count();
+        $datapaket = \App\Models\Paket::count();
+        $datajenis = \App\Models\JenisPaket::count();
+
+        $data = [
+            'datapemesanan' => $datapemesanan,
+            'datapaket' => $datapaket,
+            'datajenis' => $datajenis
+        ];
+
+        return view('admin.dashboard', compact('data'));
     }
 }

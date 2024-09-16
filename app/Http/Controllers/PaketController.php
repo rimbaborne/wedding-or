@@ -70,47 +70,4 @@ class PaketController extends Controller
 
         return view('pages.paket.list', compact('pakets', 'jenispakets'));
     }
-
-
-    public function addCart(Request $request)
-    {
-        $paket = Paket::where('id', $request->id)->first();
-        if (!$paket) {
-            return redirect()->back()->with('error', 'Paket tidak ditemukan');
-        }
-
-        $cart = session()->get('cart');
-        $cart[$paket->id] = [
-            'nama' => $paket->nama,
-            'nominal' => $paket->nominal,
-            'qty' => 1
-        ];
-
-        session()->put('cart', $cart);
-
-        return redirect()->back()->with('success', 'Paket berhasil ditambahkan ke keranjang');
-    }
-
-    public function viewCart()
-    {
-        $carts = session()->get('cart');
-        return view('pages.paket.cart', compact('carts'));
-    }
-
-    public function deleteCart(Request $request)
-    {
-        if ($request->id) {
-            $cart = session()->get('cart');
-            if (isset($cart[$request->id])) {
-                unset($cart[$request->id]);
-                session()->put('cart', $cart);
-            }
-        }
-
-        return redirect()->back()->with('success', 'Paket berhasil dihapus dari keranjang');
-    }
-
-    public function checkout()
-    {
-        return view('pages.paket.checkout');
-    }}
+}

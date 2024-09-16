@@ -112,7 +112,36 @@
                             </button>
                         </div>
                         <div class="col-sm-6 mr-5 ml-5 mt-4">
-                            <a href="javascript:void(0);" class="btn btn-block btn-info">Pesan</a>
+                            <a href="javascript:void(0);" class="btn btn-block btn-info" data-bs-toggle="modal" data-bs-target="#pesan{{ $item->id }}">Pesan</a>
+
+                            <div class="modal fade" id="pesan{{ $item->id }}" tabindex="-1" aria-labelledby="pesan{{ $item->id }}Label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title" id="pesan{{ $item->id }}Label">Pesan {{ $item->nama }}</h3>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @auth
+                                                <div class="text-center">
+                                                    <img src="{{ asset('storage/gambar/' . $item->gambar) }}" width="100%" alt="{{ $item->nama }}">
+                                                </div>
+                                                <div class="mt-4">
+                                                    {!! $item->keterangan !!}
+                                                </div>
+                                                <hr class="my-4">
+                                                <a href="{{ route('pemesanan.paket', $item->id) }}" class="btn btn-primary"><i class="fa fa-shopping-cart me-2"></i>  Pesan Paket Ini <i class="fa fa-arrow-right ms-2"></i></a>
+                                            @else
+                                                <div class="text-center">
+                                                    <p>Anda harus login / daftar akun terlebih dahulu untuk dapat memesan paket</p>
+                                                    <a href="{{url('auth/login')}}" class="btn btn-primary ">Login</a>
+                                                    <a href="{{url('auth/register')}}" class="btn btn-outline-primary ">Daftar</a>
+                                                </div>
+                                            @endauth
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

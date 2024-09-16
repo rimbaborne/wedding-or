@@ -26,23 +26,33 @@
                         <table id="file-datatable" class="table table-bordered text-nowrap key-buttons border-bottom">
                             <thead>
                                 <tr>
-                                    <th class="border-bottom-0">Name</th>
-                                    <th class="border-bottom-0">Position</th>
-                                    <th class="border-bottom-0">Office</th>
-                                    <th class="border-bottom-0">Age</th>
-                                    <th class="border-bottom-0">Start date</th>
-                                    <th class="border-bottom-0">Salary</th>
+                                    <th class="border-bottom-0">No</th>
+                                    <th class="border-bottom-0">Invoice</th>
+                                    <th class="border-bottom-0">Status Pembayaran</th>
+                                    <th class="border-bottom-0">Status Pemesanan</th>
+                                    <th class="border-bottom-0">Nama</th>
+                                    <th class="border-bottom-0">No. Telepon</th>
+                                    <th class="border-bottom-0">Alamat</th>
+                                    <th class="border-bottom-0">Tanggal</th>
+                                    <th class="border-bottom-0" width="100px"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                </tr>
+                                @foreach ($pemesanans as $index => $item)
+                                    <tr>
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ $item->id.'-'.$item->created_at->format('dmY') }}</td>
+                                        <td>{{ $item->status_pemesanan }}</td>
+                                        <td>{{ $item->status_pembayaran }}</td>
+                                        <td>{{ $item->nama_pemesan }}</td>
+                                        <td>{{ $item->no_telepon_pemesan }}</td>
+                                        <td>{{ $item->alamat_pemesan }}</td>
+                                        <td>{{ $item->created_at->format('d-m-Y H:i:s') }}</td>
+                                        <td>
+                                            <a href="{{ route('pemesanan.invoice', $item->uuid) }}" class="btn btn-primary"><i class="fa fa-file"></i> Invoice</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

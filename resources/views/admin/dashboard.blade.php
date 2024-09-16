@@ -20,46 +20,46 @@
     <!-- PAGE-HEADER END -->
 
     <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
             <div class="card bg-primary img-card box-primary-shadow">
                 <div class="card-body">
                     <div class="d-flex">
                         <div class="text-white">
-                            <h2 class="mb-0 number-font">23,536</h2>
-                            <p class="text-white mb-0">Total Requests </p>
+                            <h2 class="mb-0 number-font">{{ $data['datapemesanan'] }}</h2>
+                            <p class="text-white mb-0">Total Data Pemesanan </p>
                         </div>
                         <div class="ms-auto"> <i class="fa fa-send-o text-white fs-30 me-2 mt-2"></i> </div>
                     </div>
                 </div>
             </div>
         </div><!-- COL END -->
-        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
             <div class="card bg-secondary img-card box-secondary-shadow">
                 <div class="card-body">
                     <div class="d-flex">
                         <div class="text-white">
-                            <h2 class="mb-0 number-font">45,789</h2>
-                            <p class="text-white mb-0">Total Revenue</p>
+                            <h2 class="mb-0 number-font">{{ $data['datapaket'] }}</h2>
+                            <p class="text-white mb-0">Jumlah Paket</p>
                         </div>
                         <div class="ms-auto"> <i class="fa fa-bar-chart text-white fs-30 me-2 mt-2"></i> </div>
                     </div>
                 </div>
             </div>
         </div><!-- COL END -->
-        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
             <div class="card  bg-success img-card box-success-shadow">
                 <div class="card-body">
                     <div class="d-flex">
                         <div class="text-white">
-                            <h2 class="mb-0 number-font">89,786</h2>
-                            <p class="text-white mb-0">Total Profit</p>
+                            <h2 class="mb-0 number-font">{{ $data['datajenis'] }}</h2>
+                            <p class="text-white mb-0">Jumlah Jenis Paket</p>
                         </div>
-                        <div class="ms-auto"> <i class="fa fa-dollar text-white fs-30 me-2 mt-2"></i> </div>
+                        <div class="ms-auto"> <i class="fa fa-list text-white fs-30 me-2 mt-2"></i> </div>
                     </div>
                 </div>
             </div>
         </div><!-- COL END -->
-        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+        {{-- <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
             <div class="card bg-info img-card box-info-shadow">
                 <div class="card-body">
                     <div class="d-flex">
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </div>
-        </div><!-- COL END -->
+        </div><!-- COL END --> --}}
     </div>
 
 @endsection

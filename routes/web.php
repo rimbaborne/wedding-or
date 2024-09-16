@@ -34,8 +34,13 @@ Route::get('/paket/list/{slug}', [PaketController::class, 'list_show'])->name('p
 Route::post('/paket/store', [PaketController::class, 'store'])->name('paket.store');
 
 Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan.index');
-Route::post('/pemesanan/store', [PemesananController::class, 'store'])->name('pemesanan.store');
+Route::get('/pemesanan/paket/{id}', [PemesananController::class, 'paket'])->name('pemesanan.paket');
+Route::get('/pemesanan/item/destroy/{id}', [PemesananController::class, 'item_destroy'])->name('pemesanan.item.destroy');
+Route::post('/pemesanan/proses/{uuid}', [PemesananController::class, 'proses'])->name('pemesanan.proses');
 Route::get('/pemesanan/invoice/{uuid}', [PemesananController::class, 'invoice'])->name('pemesanan.invoice');
+Route::get('/pemesanan/payment/{uuid}', [PemesananController::class, 'payment'])->name('pemesanan.payment');
+Route::get('/riwayat', [PemesananController::class, 'riwayat'])->name('pemesanan.riwayat');
+
 
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function() {

@@ -21,11 +21,6 @@ class Pemesanan extends Model
         'payment_gateways',
     ];
 
-    protected $casts = [
-        'status_pemesanan' => 'enum:DIPROSES,SUDAH DI KONFIRMASI,SELESAI',
-        'status_pembayaran' => 'enum:MENUNGGU PEMBAYARAN,KONFIRMASI PEMBAYARAN,LUNAS',
-    ];
-
     public static function boot()
     {
         parent::boot();
@@ -39,4 +34,11 @@ class Pemesanan extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+
+    public function item_pemesanan()
+        {
+            return $this->hasMany(ItemPemesanan::class, 'pemesanan_id', 'id');
+        }
+
 }
