@@ -50,6 +50,45 @@
                                         <td>{{ $item->created_at->format('d-m-Y H:i:s') }}</td>
                                         <td>
                                             <a href="{{ route('pemesanan.invoice', $item->uuid) }}" class="btn btn-primary"><i class="fa fa-file"></i> Invoice</a>
+                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEdit{{ $item->id }}">
+                                                <i class="fa fa-edit"></i> Edit
+                                            </button>
+                                            <div class="modal fade" id="modalEdit{{ $item->id }}" tabindex="-1" aria-labelledby="modalEdit{{ $item->id }}Label" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="modalEdit{{ $item->id }}Label">Status Pemesanan</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="{{ route('admin.pemesanan.update', $item->id) }}" method="POST">
+                                                                @csrf
+                                                                <div class="mb-3">
+                                                                    <label for="status_pemesanan" class="form-label">Status Pemesanan</label>
+                                                                    <select name="status_pemesanan" id="status_pemesanan" class="form-select">
+                                                                        <option value="">...</option>
+                                                                        <option value="PENDING" {{ $item->status_pemesanan == 'PENDING' ? 'selected' : '' }}>PENDING</option>
+                                                                        <option value="DIPROSES" {{ $item->status_pemesanan == 'DIPROSES' ? 'selected' : '' }}>DIPROSES</option>
+                                                                        <option value="SUDAH DI KONFIRMASI" {{ $item->status_pemesanan == 'SUDAH DI KONFIRMASI' ? 'selected' : '' }}>SUDAH DI KONFIRMASI</option>
+                                                                        <option value="SELESAI" {{ $item->status_pemesanan == 'SELESAI' ? 'selected' : '' }}>SELESAI</option>
+                                                                        <option value="BATAL" {{ $item->status_pemesanan == 'BATAL' ? 'selected' : '' }}>BATAL</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="status_pembayaran" class="form-label">Status Pembayaran</label>
+                                                                    <select name="status_pembayaran" id="status_pembayaran" class="form-select">
+                                                                        <option value="">...</option>
+                                                                        <option value="MENUNGGU PEMBAYARAN" {{ $item->status_pembayaran == 'MENUNGGU PEMBAYARAN' ? 'selected' : '' }}>MENUNGGU PEMBAYARAN</option>
+                                                                        <option value="LUNAS" {{ $item->status_pembayaran == 'LUNAS' ? 'selected' : '' }}>LUNAS</option>
+                                                                        <option value="BATAL" {{ $item->status_pembayaran == 'BATAL' ? 'selected' : '' }}>BATAL</option>
+                                                                    </select>
+                                                                </div>
+                                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach

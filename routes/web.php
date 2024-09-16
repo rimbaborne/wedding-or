@@ -48,6 +48,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function() {
 
     // PEMESANAN
     Route::get('/pemesanan', [AdminPemesananController::class, 'index'])->name('admin.pemesanan.index');
+    Route::post('/pemesanan/update/{id}', [AdminPemesananController::class, 'update'])->name('admin.pemesanan.update');
 
     Route::get('/customer', [AdminCustomerController::class, 'index'])->name('admin.customer.index');
     Route::get('/customer/{id}', [AdminCustomerController::class, 'show'])->name('admin.customer.show');

@@ -90,7 +90,9 @@
                 </div>
             </div>
             <div class="card-footer text-end">
-                <a href="{{ route('pemesanan.payment', ['uuid' => $pemesanan->uuid]) }}" class="btn btn-primary mb-1"><i class="si si-wallet me-2"></i> Bayar Sekarang</a>
+                @if ($pemesanan->status_pemesanan == 'DIPROSES')
+                    <a href="{{ route('pemesanan.payment', ['uuid' => $pemesanan->uuid]) }}" class="btn btn-primary mb-1"><i class="si si-wallet me-2"></i> Bayar Sekarang</a>
+                @endif
                 <button type="button" class="btn btn-outline-success mb-1" onclick="javascript:window.print();"><i class="si si-printer"></i> Print Invoice</button>
             </div>
         </div>

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('keterangan')->nullable();
             $table->json('payment_gateways')->nullable();
             $table->string('status_pemesanan')->default('PENDING'); // DIPROSES, SUDAH DI KONFIRMASI, SELESAI
-            $table->string('status_pembayaran')->nullable(); // MENUNGGU PEMBAYARAN, KONFIRMASI PEMBAYARAN, LUNAS
+            $table->string('status_pembayaran')->nullable(); // MENUNGGU PEMBAYARAN, LUNAS
             $table->timestamps();
         });
     }

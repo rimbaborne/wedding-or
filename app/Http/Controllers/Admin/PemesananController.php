@@ -55,7 +55,12 @@ class PemesananController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $pemesanan = Pemesanan::find($id);
+        $pemesanan->status_pemesanan = $request->status_pemesanan;
+        $pemesanan->status_pembayaran = $request->status_pembayaran;
+        $pemesanan->save();
+
+        return redirect()->back()->with('success', 'Data berhasil di update');
     }
 
     /**

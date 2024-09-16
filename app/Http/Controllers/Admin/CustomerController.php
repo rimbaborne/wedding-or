@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Pemesanan;
 
 class CustomerController extends Controller
 {
@@ -39,7 +40,9 @@ class CustomerController extends Controller
     public function show(string $id)
     {
         $customer = User::find($id);
-        return view('admin.customer.show', compact('customer'));
+        $pemesanans = Pemesanan::where('user_id', $id)->latest()->get();
+
+        return view('admin.customer.show', compact('customer', 'pemesanans'));
     }
 
     /**
