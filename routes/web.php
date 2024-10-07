@@ -38,8 +38,21 @@ Route::get('/pemesanan/paket/{id}', [PemesananController::class, 'paket'])->name
 Route::get('/pemesanan/item/destroy/{id}', [PemesananController::class, 'item_destroy'])->name('pemesanan.item.destroy');
 Route::post('/pemesanan/proses/{uuid}', [PemesananController::class, 'proses'])->name('pemesanan.proses');
 Route::get('/pemesanan/invoice/{uuid}', [PemesananController::class, 'invoice'])->name('pemesanan.invoice');
+Route::post('/pemesanan/invoice/{uuid}/upload', [PemesananController::class, 'invoice_upload'])->name('pemesanan.invoice.upload');
 Route::get('/pemesanan/payment/{uuid}', [PemesananController::class, 'payment'])->name('pemesanan.payment');
 Route::get('/riwayat', [PemesananController::class, 'riwayat'])->name('pemesanan.riwayat');
+
+
+
+Route::get('thank-you-page', function(){
+    return 'Terima Kasih';
+});
+Route::get('cancel-page', function(){
+    return 'Pembayaran DIbatalkan';
+});
+Route::get('callback-url', function(){
+    return 'Pembayaran Selesai';
+});
 
 
 

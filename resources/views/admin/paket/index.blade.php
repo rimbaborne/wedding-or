@@ -45,7 +45,7 @@
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
                                             <td>{{ $item->nama }}</td>
-                                            <td>{{ $item->keterangan }}</td>
+                                            <td>{!! $item->keterangan !!}</td>
                                             <td>{{ 'Rp. ' . number_format($item->nominal, 0, ',', '.') }}</td>
                                             <td>{{ $item->diskon }}</td>
                                             <td>

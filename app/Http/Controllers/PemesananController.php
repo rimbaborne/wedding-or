@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pemesanan;
 use Illuminate\Support\Str;
 use App\Models\ItemPemesanan;
+use Illuminate\Support\Facades\File;
 
 class PemesananController extends Controller
 {
@@ -71,6 +72,36 @@ class PemesananController extends Controller
         return view('pages.pemesanan.invoice', compact('pemesanan'));
     }
 
+
+    public function invoice_upload(Request $request, $uuid)
+    {
+        $pemesanan = Pemesanan::where('uuid', $uuid)->first();
+
+        if ($request->hasFile('bukti')) {
+            $file = $request->file('bukti');
+
+            $folder = 'storage/bukti_transfer';
+            if (!file_exists($folder)) {
+                mkdir($folder, 0777, true);
+            }
+
+            $filename = $pemesanan->uuid . '.' . $file->getClientOriginalExtension();
+
+            $file->move($folder, $filename);
+
+            $bukti = $pemesanan->payment_gateways;
+
+            $bukti['bukti_transfer'] = $folder . '/' . $filename;
+
+            $pemesanan->update([
+                'payment_gateways' => $bukti,
+                'status_pembayaran' => 'MENUNGGU KONFIRMASI',
+            ]);
+        }
+
+        return redirect()->back();
+    }
+
     public function item_destroy($id){
         $itempemesanan = ItemPemesanan::find($id);
         $itempemesanan->delete();
@@ -96,13 +127,15 @@ class PemesananController extends Controller
 
         $method       = 'POST'; //method
 
+        $keterangan = 'Pemesanan Paket Wedding'.$invoice;
+
         //Request Body//
-        $body['product']    = array('Pembayaran SPP Peserta Tahsin Angkatan 25');
+        $body['product']    = array($keterangan);
         $body['qty']        = array('1');
-        $body['price']      = array('100000');
-        $body['returnUrl']  = 'https://atthala.arrahmahbalikpapan.or.id/thank-you-page';
-        $body['cancelUrl']  = 'https://atthala.arrahmahbalikpapan.or.id/cancel-page';
-        $body['notifyUrl']  = 'https://atthala.arrahmahbalikpapan.or.id/callback-url';
+        $body['price']      = array($total);
+        $body['returnUrl']  = 'https://wedding.test/thank-you-page';
+        $body['cancelUrl']  = 'https://wedding.test/cancel-page';
+        $body['notifyUrl']  = 'https://wedding.test/callback-url';
         $body['referenceId'] = '1234'; //your reference id
         //End Request Body//
 

@@ -88,11 +88,56 @@
                         </tr>
                     </tbody></table>
                 </div>
+                <div class="row pt-4">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <h4 class="pt-4">
+                            <strong>Transfer Ke Rekening</strong>
+                        </h4>
+                        <table class="table table-bordered table-hover mb-0 text-nowrap">
+                            <tr>
+                                <th class="text-end">Nama Rekening</th>
+                                <td class="text-end h4">CV Wedding Balikpapan</td>
+                            </tr>
+                            <tr>
+                                <th class="text-end">Bank Tujuan</th>
+                                <td class="text-end h4">MANDIRI</td>
+                            </tr>
+                            <tr>
+                                <th class="text-end">No. Rekening</th>
+                                <td class="text-end h4">1234567890</td>
+                            </tr>
+                            <tr>
+                                <th class="text-end">Total Transfer</th>
+                                <td class="text-end h4">Rp {{ number_format($total, 0, ',', '.') }}</td>
+                            </tr>
+                        </table>
+                        @if ($pemesanan->status_pemesanan == 'DIPROSES')
+                        <form class="pt-4" action="{{ route('pemesanan.invoice.upload', ['uuid' => $pemesanan->uuid]) }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group text-center">
+                                <label for="bukti" class="text-center">Upload Bukti Transfer</label>
+                                <input type="file" name="bukti" id="bukti" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                        </form>
+                        @endif
+                        <div>
+                            {{-- {{ $pemesanan->payment_gateways['bukti_transfer'] }} --}}
+                            @if ($pemesanan->payment_gateways != null)
+                                @foreach (json_decode($pemesanan->payment_gateways, true) as $data)
+                                    <img src="{{ asset($data) }}" alt="" class="img-thumbnail mb-2">
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+
+                </div>
             </div>
             <div class="card-footer text-end">
-                @if ($pemesanan->status_pemesanan == 'DIPROSES')
-                    <a href="{{ route('pemesanan.payment', ['uuid' => $pemesanan->uuid]) }}" class="btn btn-primary mb-1"><i class="si si-wallet me-2"></i> Bayar Sekarang</a>
-                @endif
+                    {{-- <a href="{{ route('pemesanan.payment', ['uuid' => $pemesanan->uuid]) }}" class="btn btn-primary mb-1"><i class="si si-wallet me-2"></i> Bayar Sekarang</a> --}}
+
                 <button type="button" class="btn btn-outline-success mb-1" onclick="javascript:window.print();"><i class="si si-printer"></i> Print Invoice</button>
             </div>
         </div>
